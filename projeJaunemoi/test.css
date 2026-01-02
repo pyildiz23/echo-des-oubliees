@@ -1,0 +1,286 @@
+/* Genel ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f0f8ff; /* açık turkuaz gibi */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    height: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Banner / Hero */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: #e0f7fa; /* açık mavi arka plan */
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.banner-content button {
+    padding: 0.8rem 1.5rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.banner-image img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Mini About */
+.about-mini {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.about-mini h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-mini p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-mini img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.about-mini button {
+    padding: 0.7rem 1.2rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Recent Podcasts */
+.recent-podcasts {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.podcast-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.podcast-card {
+    background-color: #f0f8ff;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.podcast-card button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Categories */
+.categories {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.category-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.category-card {
+    background-color: #00bcd4;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Newsletter */
+.newsletter {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #e0f7fa;
+}
+
+.newsletter form {
+    margin-top: 1.5rem;
+}
+
+.newsletter input[type="email"] {
+    padding: 0.7rem;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+.newsletter button {
+    padding: 0.7rem 1.2rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background-color: #f0f8ff;
+    margin-top: 2rem;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-image img {
+        max-width: 300px;
+        margin-top: 1.5rem;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #f0f8ff;
+        padding: 1rem 0;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        border-left: 1px solid #ccc;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 50px 10%;
+}
+
+.intro-left, .intro-right {
+  flex: 1;
+}
+
+.intro-left h1 {
+  color: #442b48;
+  font-size: 2em;
+}
+
+.intro-right h2 {
+  color: #5a3e60;
+}
+
+.intro p {
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.btn {
+  display: inline-block;
+  background-color: #7a4c86;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #5e3a68;
+}

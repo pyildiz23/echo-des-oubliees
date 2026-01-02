@@ -1,0 +1,449 @@
+/* --- podcasts list --- 
+
+.pod-main-grid { display:flex; gap:24px; justify-content:center; padding: 2rem 4%; flex-wrap:wrap; }
+.pod-card { width:250px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.08); text-align:left; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pod-card img { width:100%; height:160px; object-fit:cover; display:block; }
+.pod-card h3 { padding:12px; font-size:1.1rem; margin:0; }
+.pod-card h3 a { color:#4a2b4b; text-decoration:none; }
+.pod-meta { padding: 0 12px 16px 12px; color:#666; font-size:0.95rem; }
+/* --- hero kısmı (üst başlık ve açıklama) --- */
+.pod-hero {
+  text-align: center;
+  padding: 100px 20px 60px; /* üstten mesafe eklendi */
+  background: #f7f7fb;
+}
+.pod-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.pod-card a:hover{
+  text-decoration: underline;
+}
+.pod-hero h1 {
+  font-size: 3rem; /* başlık büyüdü */
+  color: #2b1b2c;
+  margin-bottom: 15px;
+}
+
+.pod-hero p {
+  font-size: 2rem; 
+  color: #4d4b4b;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+/* categories */
+.pod-categories {
+  padding: 60px 4%; /* biraz üst ve alt boşluk artırdım */
+  background: #fff;
+}
+.pod-categories h2 {
+  font-size:xx-large;
+   margin-bottom: 40px;
+   text-align: center;
+}
+
+.categories-list {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px; /* üstten biraz daha boşluk */
+  flex-wrap: wrap;
+}
+
+.cat-btn {
+  background: #FFC300;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cat-btn:hover {
+  background: #ddb215;
+}
+
+.cat-row {
+  display: flex;
+  gap: 45px; /* kartlar arası boşluk artırıldı */
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 40px; /* kategori başlığı ile alt kartlar arası boşluk artırıldı */
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.cat-pod {
+  width: 220px;
+  background: #fff;
+  padding: 6px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-pod img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cat-pod a {
+  display: block;
+  margin-top: 8px;
+  color: #181711;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cat-pod a:hover {
+  text-decoration: underline;
+  color: #715902;
+}
+
+.cat-pod:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.pod-note {
+  background: #f4eef8; /* hafif mor ton, sayfadan ayrılıyor */
+  padding: 50px 20px;
+  border-radius: 15px;
+  max-width: 1000px;
+  margin: 50px auto; /* sayfa ortasında */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.pod-note blockquote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5a3e60;
+  margin-bottom: 25px;
+  position: relative;
+  padding: 20px 30px;
+  quotes: "“" "”";
+}
+
+.pod-note blockquote::before {
+  content: open-quote;
+  font-size: 2rem;
+  color: #a06da0;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
+
+.pod-note blockquote::after {
+  content: close-quote;
+}
+
+.pod-note p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a2b4b;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .pod-note {
+    padding: 30px 15px;
+  }
+
+  .pod-note blockquote {
+    font-size: 1.3rem;
+    padding: 15px 20px;
+  }
+
+  .pod-note p {
+    font-size: 1rem;
+  }
+}
+/* Genel stil */
+.play-btn {
+  display: inline-block;
+  background-color: #f9c400; /* Turkuaz ton, göze hoş */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+/* Hover efekti */
+.play-btn:hover {
+  background-color: #bc9404; /* Daha koyu turkuaz */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Odaklanma efekti */
+.play-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.4);
+}
+
+
+
+/* pod detail */
+.pod-detail { display:flex; gap:30px; padding: 30px 5%; align-items:flex-start; flex-wrap:wrap; background:#faf7fb; }
+.pod-left { flex: 0 0 360px; }
+.detail-cover { width:100%; border-radius:12px; object-fit:cover; }
+.pod-right { flex:1; min-width:280px; }
+.meta-list { list-style:none; padding-left:0; color:#444; }
+.meta-list li { margin-bottom:6px; }
+.mini-audio-row { display:flex; gap:12px; align-items:flex-start; margin:18px 0; background:rgba(0,0,0,0.03); padding:10px; border-radius:10px; }
+.mini-thumb { width:90px; height:90px; object-fit:cover; border-radius:8px; }
+.mini-text p { margin:6px 0 0 0; font-size:0.95rem; color:#333; }
+.player-box audio { width:100%; margin-top:8px; }
+
+/* long text */
+.pod-long-text { padding: 2rem 5%; background:#fff; border-top:1px solid #eee; margin-top:20px; border-radius:8px; max-width:1100px; margin-left:auto; margin-right:auto; }
+.pod-long-text h2 { margin-bottom:12px; color:#4a2b4b; }
+
+/* responsive */
+@media (max-width:900px) {
+  .pod-detail { flex-direction:column; }
+  .pod-left { flex-basis:100%; }
+  .pod-right { flex-basis:100%; }
+  .pod-main-grid { gap:16px; padding: 1rem 3%; }
+}
+/* ---------- À PROPOS STYLES ---------- */
+
+/* Genel container ayarları */
+.apro-hero,
+.apro-histoire,
+.apro-valeurs,
+.apro-vision,
+.apro-cta {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 28px 20px;
+  border-radius: 12px;
+  background: white;
+}
+
+/* Hero */
+.apro-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(180deg, rgba(122,76,134,0.06), rgba(250,246,250,0.02));
+  text-align: center;
+  padding: 60px 20px;
+  box-shadow: 0 10px 30px rgba(58,33,54,0.06);
+}
+
+.apro-hero h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2.4rem;
+  color: #3a2136;
+  margin-bottom: 6px;
+  line-height: 1.05;
+}
+
+.apro-hero p {
+  max-width: 820px;
+  color: #5a3e60;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* H2 başlıklar */
+.apro-histoire h2,
+.apro-valeurs h2,
+.apro-vision h2 {
+  font-size: 1.6rem;
+  color: #3a2136;
+  margin-bottom: 12px;
+}
+
+/* Paragraf */
+.apro-histoire p,
+.apro-vision p {
+  color: #4a2b4b;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Değerler (liste) */
+.apro-valeurs ul {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.apro-valeurs li {
+  background: linear-gradient(90deg, rgba(122,76,134,0.06), rgba(240,230,245,0.02));
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #dd8480;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(74,43,75,0.04);
+}
+
+/* CTA bölümü */
+.apro-cta {
+  text-align: center;
+  background: linear-gradient(180deg, rgba(122,76,134,0.04), rgba(255,255,255,0));
+  padding: 36px 20px;
+  margin-top: 24px;
+}
+
+.apro-cta h3 {
+  font-size: 1.3rem;
+  color: #dd8480;
+  margin-bottom: 8px;
+}
+
+.apro-cta p {
+  color: #dd8480;
+  margin-bottom: 14px;
+}
+
+/* Buton stili */
+.cta-btn {
+  display: inline-block;
+  background: #dd8480;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .18s ease, background-color .18s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-4px);
+  background: #dd8480;
+}
+
+/* Küçük ekran (responsive) */
+@media (max-width: 860px) {
+  .apro-hero { padding: 36px 16px; }
+  .apro-hero h1 { font-size: 1.9rem; }
+  .apro-valeurs ul { grid-template-columns: 1fr; }
+  .apro-hero p, .apro-histoire p, .apro-vision p { font-size: 0.98rem; }
+  .apro-hero, .apro-histoire, .apro-valeurs, .apro-vision, .apro-cta {
+    margin: 24px 12px;
+    padding: 20px;
+  }
+}
+
+/* İnce görsel dokunuşlar Contact */
+.contact-section {
+  width: 100%;
+  padding: 70px 8%;
+  text-align: center;
+  
+  /* Arka plan görseli */
+  background-image: url("images/contact.jpg");
+  background-size: cover;        /* Görsel tüm alanı kaplar */
+  background-position: center;   /* Ortadan hizalar */
+  background-repeat: no-repeat;  /* Tekrar etmez */
+  position: relative;            /* Overlay için gerekli */
+  color: #fff;
+}
+
+/* Opsiyonel: daha okunaklı yapmak için hafif karartma */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35); /* yarı saydam siyah katman */
+  z-index: 0;
+}
+
+/* Form ve başlıkları overlay üstüne getir */
+.contact-section h1,
+.contact-section .contact-intro,
+.contact-section .contact-form {
+  position: relative;
+  z-index: 1;
+}
+.contact-intro {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 50px; /* eskiden 40px idi, artırdık */
+  text-align: center;
+  color: #fff; /* ya da istediğin renk */
+}
+/* Form genişliği sınırlı ve ortalanmış */
+.contact-section .contact-form {
+  max-width: 600px;   /* form genişliği */
+  margin: 0 auto;     /* ortala */
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;   /* input label vs için */
+}
+
+/* Label ve input renkleri */
+.contact-section label {
+  color: #dd8480;     /* istediğin renk */
+  font-weight: 600;
+  font-size: 1.1em;
+  
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #dd8480;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  border-color: #dd8480;
+}
+
+.btn-submit {
+  padding: 14px 20px;
+  background: #dd8480;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+   margin-bottom: 40px;
+}
+
+.btn-submit:hover {
+  background: #ff6d68;
+}
+
+/* Küçük ekran responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 50px 4%;
+  }
+  .contact-section .contact-form {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo des Oubliées</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <img src="images/logo.png" alt="logo" class="logo">
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#podcasts">Podcasts</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Banner / Hero -->
+<section id="accueil" class="banner">
+      <div class="banner-image">
+        <img src="images/banner.jpg" alt="Podcast illustration">
+    </div>
+    </section>
+<section class="intro">
+  <div class="intro-left">
+    <h1>Des histoires qui brisent le silence</h1>
+    <p>
+      Chaque voix compte. À travers nos podcasts, nous mettons en lumière 
+      les récits de femmes courageuses, souvent oubliées, mais jamais réduites au silence.
+    </p>
+  
+
+  </div>
+
+  <div class="intro-right">
+    <h2>Qui sommes-nous ?</h2>
+    <p>
+      Echo des Oubliées est né du désir de donner une voix à celles qu’on n’entend pas. 
+      Nous croyons au pouvoir du partage et de la parole pour changer les mentalités.
+    </p>
+      <a href="apropos.html" class="btn">En savoir plus →</a>
+  </div>
+</section>
+
+<!-- Nos derniers épisodes -->
+<section class="recent-podcasts">
+    <h2>Nos derniers épisodes</h2>
+    <p>Découvrez nos dernières histoires et écoutez des voix qui méritent d'être entendues.</p>
+    <div class="podcast-cards">
+        <div class="podcast-card">
+            <h3>Épisode 12: Le pouvoir des femmes dans la société</h3>
+            <p>Durée: 25 min</p>
+            <button>▶ Play</button>
+        </div>
+        <div class="podcast-card">
+            <h3>Épisode 11: Santé mentale et résilience</h3>
+            <p>Durée: 30 min</p>
+            <button>▶ Play</button>
+        </div>
+        <div class="podcast-card">
+            <h3>Épisode 10: Inspiration au quotidien</h3>
+            <p>Durée: 20 min</p>
+            <button>▶ Play</button>
+        </div>
+    </div>
+    <button>Voir tous les épisodes</button>
+</section>
+
+<!-- Explorer par catégorie -->
+<section class="categories">
+    <h2>Explorer par catégorie</h2>
+    <p>Trouvez facilement des épisodes selon vos centres d’intérêt.</p>
+    <div class="category-cards">
+        <div class="category-card">Santé</div>
+        <div class="category-card">Inspiration</div>
+        <div class="category-card">Société</div>
+        <div class="category-card">Éducation</div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <h2>Abonnez-vous à notre newsletter</h2>
+    <p>Recevez nos derniers épisodes directement dans votre boîte mail !</p>
+    <form>
+        <input type="email" placeholder="Votre email">
+        <button type="submit">S’abonner</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Echo des Oubliées</p>
+</footer>
+
+<!-- JS for hamburger -->
+<script>
+    const toggleButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggleButton.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
